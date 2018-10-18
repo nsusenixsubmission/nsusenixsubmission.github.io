@@ -78,6 +78,7 @@ body {
           <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ">
                   <li><a href="#about">About</a></li>
+                  <li><a href="#demo">Demo</a></li>
                   <li><a href="#download">Downloads</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li><a href="#rpartners">Research Partners</a></li>
@@ -118,6 +119,30 @@ Except for the vulnerable apps we discovered, we observed that 8% of iOS apps tu
 <br><br>
 </p>
 <br>
+<h2 id="demo">Demo</h2>
+<p style="font-size: 16px">
+  <br>
+Demos described in our paper are collected here to support our work. <br>
+<b>Ethical considerations:</b> All of the vulnerabilities described here have been fixed by vendor. We believe no end-user will be affected by these vulnerabilities.
+
+<br><br>
+Waze Vulnerability<br>
+
+<br><br>
+Now Vulnerability<br>
+
+<br><br>
+<b>Demo3: QQBrowser Vulnerability.</b><br>
+
+<div style="font-size:13.3333px"><div><div class="sites-embed-align-left-wrapping-off"><div class="sites-embed-border-on sites-embed" style="width:640px;"><h4 class="sites-embed-title">YouTube Video</h4><div class="sites-embed-content sites-embed-type-youtube"><iframe title="YouTube video player" class="youtube-player" type="text/html" src="https://www.youtube.com/embed/MB4NLvcFLbE?rel=0&amp;wmode=opaque" frameborder="0" allowfullscreen="true" width="640" height="360"></iframe></div></div></div></div><br></div>
+<b>Description:</b> QQBrowser is a popular app in App Store, which is ranking top 3 of tool category in region of China. The iOS app provides network service for 2 commands, they are “url” and “installurl”. Except the “intallurl” command which will drive the app to navigate to items on iTunes App Store, there are additional 9 sub commands behind “url” providing more abilities. “tel” for dialing a specific number, “sms:” for sending sms message, “itms-services://” for installing an app, etc. All these sub commands are enclosed in the body of a post request. By sending post request, an attacker can remote manipulate the app.<br>
+
+<b>Vendor response for this vulnerability:</b>
+<div style="font-size:13.3333px"><b><div style="display:block;text-align:left"><div style="text-align:center;display:block"><a href="img/orig/qqbrowser-chs.png?attredirects=0" imageanchor="1"><img border="0" height="340" src="img/small/qqbrowser-chs.png?height=340&amp;width=400" width="400"></a></div><br></div><div style="display:block;text-align:left"><br></div><div style="text-align:center;display:block"><span style="font-size:13.3333px;font-weight:400">(Official response from vendor's security response center)</span></div><div style="display:block;text-align:left"><span style="font-size:13.3333px;font-weight:400"><br></span></div><div style="display:block;text-align:left"><span style="font-size:13.3333px;font-weight:400"><div style="display:block;text-align:left"><br></div><div style="display:block;text-align:left"><div style="text-align:center;display:block"><a href="img/orig/qqbrowser-eng.png?attredirects=0" imageanchor="1"><img border="0" height="308" src="img/small/qqbrowser-eng.png?height=308&amp;width=400" width="400"></a></div><br></div><div style="display:block;text-align:left"><br></div><div style="text-align:center;display:block"><span style="font-size:13.3333px">(Official response from vendor's security response center, translated by google translate)</span></div><br></span></div><br></b></div>
+
+<br><br>
+</p>
+<br>
 <h2 id="download">Paper and Dataset Download</h2>
 <p style="font-size: 16px">
 Our paper has been submitted (for anonymous reviews) to <a href="https://www.usenix.org/conference/usenixsecurity19">Usenix Security 2019</a>.<br>
@@ -136,7 +161,7 @@ Please contact us on the following email for if you intend to use the dataset an
 
 <h2 id="rpartner">Research Partners</h2>
 <p style="font-size: 16px">
-Historical malware dataset for this study is based on
+Historical ios app dataset for this study is based on
 Anonymous' (name will be updated) <a href="https://github.com/nsusenixsubmission/usenix2019.git"> AnonymousProject </a> (will be updated).
 
     </div>  <!-- col -->
