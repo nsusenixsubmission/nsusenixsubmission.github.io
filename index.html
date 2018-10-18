@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Internet Malicious Activities</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+/* Bootstrap overrides */
+body {
+  /*min-height: 1000px;*/
+  padding-top: 70px;
+}
+
+.navbar-default {
+  height: 65px;
+}
+
+.navbar-default
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 65px;
+  font-size: 18pt;
+}
+
+.navbar-nav > li > a {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 65px;
+  font-size: 16pt;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<!-- Additional files for the Highslide popup effect -->
+<script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+<script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
+
+
+<script>
+	// Get the CSV and create the chart
+	//$.getJSON('based.json', function (chart) {
+	//	Highcharts.chart('plot', chart);
+	//});
+  $.getJSON('corr.json', function (chart) {
+		Highcharts.chart('plotcorr', chart);
+	});
+  $.getJSON('daytoday.json', function (chart) {
+    Highcharts.chart('plotdaytoday', chart);
+	});
+
+</script>
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <a href="index.html" class="navbar-brand">SiOS Study</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav ">
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#download">Downloads</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="#rpartners">Research Partners</a></li>
+              </ul>
+              <!--<ul class="nav navbar-nav navbar-right">
+                  <li class="mylogo"><a><img src="TU_Muenchen_Logo.svg" height=40px"/></a>&nbsp;</li>
+                  <li class="mylogo"><a><img src="rwth_comsys_bild_rgb.svg" height="40px"/></a>&nbsp;</li>
+                  <li class="mylogo"><a><img src="Usyd_new_logo.png" height="40px"/></a>&nbsp;</li>
+                  <li class="mylogo"><a><img src="neu.png" height="40px"/></a></li>
+              </ul>-->
+              <a href="https://github.com/nsusenixsubmission/pamintermas.github.io"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me (if you wish) on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png""></a>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+    <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="page-header">
+
+<h2 id="about">About this Study</h2>
+<p style="font-size: 16px">
+  A vulnerable network service may lead to remote app manipulation, remote code execution (RCE), privacy leakage, or denial-of-service (DoS). So far, comprehensive work has been done on the security of network services on Android apps. However, the network service security of iOS apps has not been explored. Lots of factors, includes lacking iOS app and analysis tool on hand, third-party network service library identification, or the closed-source property of iOS system, hinder the vetting process for iOS app.
+<br><br>
+In this paper, we focus on the remote app manipulation and privacy leakage vulnerabilities of network services in iOS apps. 
+In order to systematically measure the security status of the network services in iOS apps, we firstly use dynamic analysis to vet the network service on the top 1,300 iOS apps, to collect third-party network service libraries by using the call stack of the network service, and to withdraw the signatures for network services. 
+Then, we query to measure the network services on 168,951 iOS apps.
+<br><br>
+Among the top 1,300 iOS apps, 11 vulnerable apps are found, and 4 severely affected apps have been confirmed by the corresponding vendors so far, including the most famous apps, such as <b>Waze</b>, <b>QQBrowser</b>, and <b>Now</b>. These found vulnerabilities affect billions of end-users in the real world. Attackers can mislead the vehicle drivers, steal the end-users' credentials, drive the app to dial a designated phone number, or crash the apps remotely by exploiting these real network service vulnerabilities. 
+Moreover, by extending our findings to a large-scale dataset of 168,951 iOS apps, we find additional 103 iOS apps integrate the vulnerable third-party libraries we discovered in previous stage. Since only 1,300 iOS apps' network services have been studied and the security measurement on the whole dataset follows the known vulnerabilities we discovered in the limited dataset, we believe more iOS apps are vulnerable to attack towards network service.  
+<br><br>
+Except for the vulnerable apps we discovered, we observed that 8% of iOS apps turn the corresponding iOS devices into a server on their startup, 40.98% iOS apps potentially turn the iOS devices into a server. If these servers are vulnerable, remote attack towards network service may incur remote control or privacy leaks. We also study the network services provided by the third-party libraries to find that using third-party libraries to turn the iOS devices into a server is the most popular implementation mechanism of network services on iOS apps, and unveil the distribution characteristics of network services in different app categories. Our study shines light on the research of the security of network services on iOS apps.
+<br><br>
+</p>
+<br>
+<h2 id="download">Paper and Dataset Download</h2>
+<p style="font-size: 16px">
+Our paper has been submitted (for anonymous reviews) to <a href="https://www.usenix.org/conference/usenixsecurity19">Usenix Security 2019</a>.<br>
+</p>
+
+<p style="font-size: 16px">
+We provide a historical and ongoing collection of malware activities <a href="https://github.com/nsusenixsubmission/usenix2019.git">on an archive server</a>.<br>
+A sample of dataset and scripts used for the publication is hosted at the <a href="https://github.com/nsusenixsubmission/usenix2019.git"> on Github </a>.<br><br>
+Please contact us on the following email for if you intend to use the dataset and scripts. <br /><br>
+</p>
+
+<h2 id="contact">Contact</h2>
+<p style="font-size: 16px">
+	<b>nsusenixsubmission</b> [at] <b>gmail.com</b>
+</p>
+
+<h2 id="rpartner">Research Partners</h2>
+<p style="font-size: 16px">
+Historical malware dataset for this study is based on
+Anonymous' (name will be updated) <a href="https://github.com/nsusenixsubmission/usenix2019.git"> AnonymousProject </a> (will be updated).
+
+    </div>  <!-- col -->
+  </div>  <!-- row -->
+
+    </div> <!-- /container -->
+
+</body>
+</html>
